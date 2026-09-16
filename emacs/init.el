@@ -51,11 +51,10 @@
 
 (add-hook 'isearch-mode-hook
           (lambda ()
-            (keymap-local-set "RET"     #'isearch-exit)
-            (keymap-local-set "<left>"  #'isearch-edit-string)
-            (keymap-local-set "<right>" #'isearch-edit-string)
-            (keymap-local-set "<up>"    #'isearch-repeat-backward)
-            (keymap-local-set "<down>"  #'isearch-repeat-forward)))
+            (define-key isearch-mode-map (kbd "<left>")  #'isearch-edit-string)
+            (define-key isearch-mode-map (kbd "<right>") #'isearch-edit-string)
+            (define-key isearch-mode-map (kbd "<up>")    #'isearch-repeat-backward)
+            (define-key isearch-mode-map (kbd "<down>")  #'isearch-repeat-forward)))
 
 (setq make-backup-files nil)
 
